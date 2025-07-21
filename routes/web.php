@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function () {
+    return view('welcome');
+})->name('home');
 
 Route::delete('/jobs/{job}', [App\Http\Controllers\JobpostController::class, 'destroy'])->name('jobs.destroy');
 // Route::get('/dashboard', function () {
@@ -36,7 +40,6 @@ Auth::routes();
 Route::get('/managejobs', [App\Http\Controllers\JobpostController::class, 'manage'])->name('managejobs');
 Route::get('/adminviewjobs', [App\Http\Controllers\JobpostController::class, 'adminviewjobs'])->name('adminviewjobs');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
 
 // Route::get('/viewjob', [App\Http\Controllers\JobpostController::class, 'viewjob'])->name('viewjob');
@@ -60,6 +63,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/insert', [App\Http\Controllers\ApplicationController::class, 'store'])->name('insert');
     Route::post('/addjob', [App\Http\Controllers\JobpostController::class, 'store'])->name('addjob');
     Route::post('categories.store', [App\Http\Controllers\CategoryController::class, 'store'])->name('categories.store');
-
 });
+
+
+
+
+
+
+
+
+
+//////////
+Route::get('/search', [App\Http\Controllers\JobpostController::class, 'search'])->name('jobs.search');
 

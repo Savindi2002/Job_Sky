@@ -1,95 +1,80 @@
-<!-- resources/views/jobs.blade.php -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insider Jobs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1zjfbQA5tPB5Fw5cSNGtR/N2Pq0zJ9b0QjOD5YFJlFQ1bFYZ/3gEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/jobs.css') }}">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo"> <i class="fas fa-briefcase"></i> Insider<span>jobs</span></div>
-            <div class="auth-links">
-                <a href="#">Recruiter Login</a>
-                <button class="login-btn">Login</button>
-            </div>
-        </div>
-    </header> -->
-
 
     @extends('layouts.app')
     @section('content')
 
-    {{-- <a href="{{route('adminviewjobs')}}">View Job</a>
-    <a href="{{route('managejobs')}}">Manage Job</a> --}}
 
-    <section class="hero">
-        <h1>Over 10,000+ jobs to apply</h1>
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1zjfbQA5tPB5Fw5cSNGtR/N2Pq0zJ9b0QjOD5YFJlFQ1bFYZ/3gEA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+
+    <section class="hero-section">
+    <div class="hero-content">
+        <h1>Over 10,00+ jobs to apply</h1>
         <p>Your Next Big career move starts Right Here</p>
         <div class="search-bar">
             <input type="text" placeholder="Search for jobs">
-            <input type="text" placeholder="Location">
+
             <button>Search</button>
         </div>
-    </section>
+       
+    </div>
+</section>
 
-    <section class="trusted">
-        <p>Trusted by</p>
-        <div class="logos">
-            <img src="/images/microsoft.png" alt="Microsoft">
-            <img src="/images/walmart.png" alt="Walmart">
-            <img src="/images/accenture.png" alt="Accenture">
-            <img src="/images/samsung.png" alt="Samsung">
-            <img src="/images/amazon.png" alt="Amazon">
-            <img src="/images/adobe.png" alt="Adobe">
+    <section class="trusted container-fluid">
+        
+        <div class="row">
+        <div class="logos col-md-8 offset-md-4">
+            <img src="/img/microsoft.png"  style="width:10%;" alt="Microsoft">
+            <img src="/img/welmart.png" style="width:10%;" alt="Walmart">
+            <img src="/img/accenture.png" style="width:10%;" alt="Accenture">
+            <img src="/img/samsung.png" style="width:10%;" alt="Samsung">
+            <img src="/img/amazon.png" style="width:10%;" alt="Amazon">
+            <img src="/img/adobe.png" style="width:10%;" alt="Adobe">
+        </div>
         </div>
     </section>
 
     <main class="main-content">
         <aside class="filters">
-            <aside class="filters">
+            {{-- <aside class="filters">
     <h3>Search by Categories</h3>
     <ul>
         @foreach($categorys as $category)
             <li><a href="#">{{ $category->name }}</a></li>
         @endforeach
     </ul>
-</aside>
+</aside> --}}
 
 
-            {{-- <h3>Search by Categories</h3>
+             {{-- <h3>Search by Categories</h3>
             <ul>
                 <li><a href=""> Programming</a>
         
-            </ul> --}}
+            </ul> 
             <aside class="filters">
     
     </ul>
-</aside>
+</aside> --}}
 
-        
-        </aside>
+
 
          {{-- <a href="{{route('addjob_page')}}">Add Jobs</a> --}}
         <section class="jobs">
-    <h2>Latest Jobs</h2>
-    <div class="job-list">
+    <h2 class="text-align: center;
+    font-weight: bold;
+    font-size: 2rem; 
+    margin-bottom: 20px;">Latest Jobs</h2>
+    <div class="job-cards" >
         @foreach($jobs as $job)
         <div class="job-card">
             <div class="company-logo">
-                <img src="/images/slack.png" alt="{{ $job->title }}">
+                <img  className='h-8'src="/img/cross_logo.png" alt="{{ $job->title }}" style="width: 85px;">
             </div>
             <h4>{{ $job->title }}</h4>
             <span class="location">{{ $job->location }}</span>
             <span class="level">{{ ucfirst($job->jobtype) }}</span>
             <p>{{ Str::limit($job->description, 80) }}</p>
             <div class="job-actions">
-                <a href="{{ route('viewjob', ['id' => $job->id]) }}">View Job</a>
-                <a href="{{ route('applyjob_page', ['id' => $job->id]) }}">Apply Now</a>
+                <a href="{{ route('viewjob', ['id' => $job->id]) }}" class="view-job-btn mb-1">View Job</a>
+                <a href="{{ route('applyjob_page', ['id' => $job->id]) }}" class="apply-now-btn">Apply Now</a>
             </div>
         </div>
         @endforeach
@@ -106,9 +91,10 @@
 
     <section class="app-download">
         <h2>Download Mobile App For Better Experience</h2>
+                    <img src="/img/girl.jpeg" alt="girl" class="mb-2">
         <div class="store-links">
-            <img src="/images/googleplay.png" alt="Google Play">
-            <img src="/images/appstore.png" alt="App Store">
+            <img src="/img/googlestore.png" alt="Google Play">
+            <img src="/img/appstore.png" alt="App Store">
         </div>
     </section>
 

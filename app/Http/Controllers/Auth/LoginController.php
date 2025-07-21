@@ -27,15 +27,28 @@ class LoginController extends Controller
      * @var string
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
-    protected function redirectTo()
-    {
-        if (Auth::user()->status == 1) {
-            return '/home';
-        } elseif (Auth::user()->status == 2) {
-            return '/dashboard';
-        }
-        // return '/';
+    // protected function redirectTo()
+    // {
+    //     if (Auth::user()->status == 1) {
+    //         return '/home';
+    //     } elseif (Auth::user()->status == 2) {
+    //         return '/dashboard';
+    //     }
+    // }
+
+
+
+    protected function authenticated($request, $user)
+{
+    if ($user->status == 1) {
+        return redirect('/');
+    } elseif ($user->status == 2) {
+        return redirect('/dashboard');
+    } else {
+        Auth::logout();
+        return redirect('/login')->withErrors(['status' => 'Unauthorized status']);
     }
+}
 
 
     /**

@@ -5,11 +5,12 @@ use App\Models\Application;
 use App\Models\Jobpost;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Category;
 
 class JobpostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,7 +39,7 @@ class JobpostController extends Controller
 
     public function manage()
     {
-        $jobs = JobPost::where('user_id', Auth::id())->where('status',1)->get();
+        $jobs = JobPost::where('status',1)->get();
         return view('managejob', compact('jobs'));
     }
     
@@ -167,4 +168,31 @@ class JobpostController extends Controller
 
         return redirect()->back()->with('success', 'Job deleted successfully.');
     }
+
+
+
+
+
+
+
+
+
+    ///
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    $jobs = JobPost::where('title', 'like', "%{$query}%")
+                ->orWhere('location', 'like', "%{$query}%")
+                ->orWhere('description', 'like', "%{$query}%")
+                ->get();
+$categorys=Category::where('status','1')->get();
+    return view('welcome', compact('jobs','categorys'));
 }
+}
+
+
+
+
+
+

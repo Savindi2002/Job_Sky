@@ -15,24 +15,49 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Insider Jobs</title>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Joby Sky</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1zjfbQA5tPB5Fw5cSNGtR/N2Pq0zJ9b0QjOD5YFJlFQ1bFYZ/3gEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-R4pqcOYV8lt7snD1Q7DH7bj9AA1P1tHSC3+Gxw7bl6gkN6tGz8VYBQ5Yx0DCE8B4vGZMnK0AZGTTsFJ0v0LXVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/jobs.css') }}">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+    <div id="app  insiderXblueNav">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-blue shadow-sm"> --}}
+            {{-- <nav class="navbar navbar-expand-md insiderXpurpleNav shadow-sm"> --}}
+                {{-- <nav class="navbar navbar-expand-md insiderXblueNav shadow-sm"> --}}
+                    <nav class="navbar navbar-expand-md insiderXblueNav shadow-sm">
+            <div class="container  insiderXblueNav">
                
-                <header class="header">
+                {{-- <header class="header">
         <div class="container">
             <div class="logo"> <i class="fas fa-briefcase"></i> Insider<span>jobs</span></div>
             <div class="auth-links">
         </div>
-    </header>
+    </header> --}}
+
+
+   <header class="insiderXuniqHeader">
+    <div class="insiderXuniqContainer">
+        <div class="insiderXuniqLogoBox">
+            {{-- <i class="fas fa-briefcase insiderXuniqIcon"></i> --}}
+          <img src="/img/logo.png" style="width: 50px; height: 50px; border-radius: 50%;" />
+
+            <span class="insiderXuniqLogoText">Insider<span class="insiderXuniqSpan">Jobs</span></span>
+        </div>
+    </div>
+</header>
+
+
+
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,13 +74,19 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}" style="background-color: #007bff; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; display: inline-block;">
+    {{ __('Login') }}
+</a>
+
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="background-color: #007bff; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; display: inline-block;">
+    {{ __('Register') }}
+</a>
+
                                 </li>
                             @endif
                         @else
@@ -95,9 +126,9 @@
             <div class="logo"> <i class="fas fa-briefcase"></i> Insider<span>jobs</span></div>
             <p>All rights reserved</p>
             <div class="social-icons">
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-instagram"></i>
             </div>
         </div>
     </footer>

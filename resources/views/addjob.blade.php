@@ -1,8 +1,12 @@
 @extends('layouts.app')
     @section('content')
     <body>
-        <div class="job-form-container">
-    <h2>Create Job Post</h2>
+        <div class="form-container" style="border: 2px solid #9c27b0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+    <h2 style="font-family: 'Segoe UI', sans-serif; font-size: 28px; color: #4a148c; font-weight: 700; border-bottom: 3px solid #7b1fa2; padding-bottom: 6px; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+    Create Job Post
+</h2>
+
     <form action="{{route('addjob')}}" method="POST">
       @csrf
       <div class="form-group">
@@ -73,7 +77,10 @@
         </div>
       </div>
 
-      <button type="submit">Submit Job</button>
+     <button type="submit" style="background-color: #4a148c; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: background-color 0.3s ease;">
+    Submit Job
+</button>
+
     </form>
   </div>
 </body>

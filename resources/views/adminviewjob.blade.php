@@ -3,8 +3,14 @@
  @extends('layouts.app')
     @section('content')
 <div class="container">
-    <h2 class="mb-4">All Job Applications</h2>
-    <table class="table table-bordered table-striped">
+    <h2 class="mb-4" style="font-family: 'Segoe UI', sans-serif; font-size: 26px; color: #251f8f; font-weight: 600; border-bottom: 3px solid #143197; padding-bottom: 8px; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+    All Job Applications
+</h2>
+
+        <div class=" p-4 shadow rounded bg-white mb-5" style="overflow: scroll">
+        <div class="job-info d-flex align-items-center mb-4">
+    <table class="table table-bordered table-striped" style="border: 2px solid #143197;">
+
         <thead>
             <tr>
                 <th>User Full Name</th>
@@ -54,5 +60,8 @@
             @endforeach
         </tbody>
     </table>
+    
+</div>
+</div>
 </div>
 @endsection

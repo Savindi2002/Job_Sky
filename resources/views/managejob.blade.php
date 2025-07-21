@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Manage Job Posts</h1>
+    <h1 class="mb-4" style="font-family: 'Segoe UI', sans-serif; font-size: 32px; color: #2e3b55; font-weight: 700; border-bottom: 3px solid #007bff; padding-bottom: 10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+    Manage Job Posts
+</h1>
+
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>

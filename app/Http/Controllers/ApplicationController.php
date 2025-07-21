@@ -56,10 +56,11 @@ class ApplicationController extends Controller
             dd('Resume not found in request.');
         }
 
+     
 
         $application = Application::create([
             'user_id'       => Auth::id(),
-            'job_post_id'   => 1,
+            'job_post_id'   => $request->job_post_id,
             'full_name'     => $validated['full_name'],
             'email'         => $validated['email'],
             'phone'         => $validated['phone'],
@@ -150,3 +151,4 @@ class ApplicationController extends Controller
         return redirect()->route('applications.index')->with('success', 'Application deleted.');
     }
 }
+

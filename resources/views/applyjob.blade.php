@@ -2,12 +2,20 @@
     @section('content')
     <body>
 
-<div class="form-container">
-      <h1>{{ $job->title }}</h1>
-    <h2>Job Application Form</h2>
+<div class="form-container" style="max-width: 600px; margin: 0 auto; padding: 30px; border: 4px solid #8e44ad; border-radius: 15px; background-color: #fdfcff; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+
+      <h1 style="font-family: 'Segoe UI', sans-serif; color: #2c3e50; font-size: 32px; font-weight: 700; margin-bottom: 15px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+  {{ $job->title }}
+</h1>
+
+    <h2 style="font-family: 'Segoe UI', sans-serif; color: #2c3e50; font-size: 28px; font-weight: 600; border-bottom: 2px solid #3498db; padding-bottom: 6px; margin-bottom: 20px;">Job Application Form</h2>
+    <img src="/img/application.png" alt="icon" style="width: 45px; height: 45px; margin-left: 8px; vertical-align: middle;">
+
     <form action="{{route('insert')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
+            <input type="hidden" name="job_post_id" value="{{ $job->id }}">
+
             <label for="full_name">Full Name*</label>
             <input type="text" id="full_name" name="full_name" required>
         </div>
@@ -48,6 +56,7 @@
         </div>
     </form>
 </div>
+
 
 
 </body>

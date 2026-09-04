@@ -1,64 +1,174 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🚀 Job Sky – Job Portal Web Application
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Job Sky** is a full-stack job portal designed to connect **job seekers with employers** through a simple and responsive platform. The system allows users to search and apply for jobs, while administrators can manage job postings, categories, and applications.
 
-## About Laravel
+## 🌟 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 👤 Job Seeker
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* User registration and secure login
+* Search jobs by title, location, and description
+* View detailed job information
+* Apply for available jobs
+* Track submitted applications
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛠️ Admin Panel
 
-## Learning Laravel
+* Admin authentication
+* Add, edit, and delete job postings
+* Manage job categories
+* View and manage applications
+* Open/close job vacancies
+* Manage job listings through a dashboard
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Technologies Used
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Technology    | Purpose                 |
+| ------------- | ----------------------- |
+| **Laravel**   | Backend framework       |
+| **PHP**       | Server-side development |
+| **MySQL**     | Database                |
+| **HTML5**     | Web structure           |
+| **CSS3**      | Styling                 |
+| **Bootstrap** | Responsive UI           |
 
-## Laravel Sponsors
+## 🏗️ System Overview
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```text
+Job Seeker
+    ↓
+Register / Login
+    ↓
+Search Jobs
+    ↓
+View Job Details
+    ↓
+Submit Application
+    ↓
+Application Stored in MySQL
 
-### Premium Partners
+Admin
+    ↓
+Admin Login
+    ↓
+Dashboard
+    ↓
+Manage Jobs & Categories
+    ↓
+Review Applications
+    ↓
+Manage Job Status
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 📂 Main Modules
 
-## Contributing
+* **Authentication Module** – User registration and login
+* **Job Management Module** – Create, update, delete, and view jobs
+* **Job Search Module** – Search and filter available opportunities
+* **Application Module** – Submit and manage job applications
+* **Category Management** – Organize jobs into categories
+* **Admin Dashboard** – Centralized system management
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ⚙️ Installation & Setup
 
-## Code of Conduct
+### 1. Clone the Repository
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone <your-github-repository-url>
+cd Job-Sky
+```
 
-## Security Vulnerabilities
+### 2. Install Dependencies
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+composer install
+```
 
-## License
+### 3. Configure Environment
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Copy the `.env.example` file and create your `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Configure MySQL Database
+
+Update the database configuration in `.env`:
+
+```env
+DB_DATABASE=job_sky
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Create the database in MySQL/phpMyAdmin.
+
+### 5. Run Migrations
+
+```bash
+php artisan migrate
+```
+
+If the project contains seeders:
+
+```bash
+php artisan db:seed
+```
+
+### 6. Start the Application
+
+```bash
+php artisan serve
+```
+
+Open the application in your browser:
+
+```text
+http://127.0.0.1:8000
+```
+
+## 📸 Screenshots
+
+Add screenshots of your project here:
+
+```markdown
+![Home Page](screenshots/home.png)
+![Job Listings](screenshots/jobs.png)
+![Admin Dashboard](screenshots/admin-dashboard.png)
+```
+
+## 🎯 Project Objectives
+
+* Build a practical full-stack web application
+* Simplify the job searching and application process
+* Provide organizations with an efficient job management system
+* Practice Laravel MVC architecture and database integration
+* Develop a responsive and user-friendly web interface
+
+## 🔮 Future Improvements
+
+* Email notifications for applications
+* Advanced job filtering
+* Resume/CV upload
+* Employer accounts
+* Application status tracking
+* Job recommendation system
+* AI-based CV and job matching
+
+## 👩‍💻 Developer
+
+**Savindi Hewage**
+
+Data Science Undergraduate
+Sabaragamuwa University of Sri Lanka
+
+## 📄 License
+
+This project was developed for **educational and portfolio purposes**.
